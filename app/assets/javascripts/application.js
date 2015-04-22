@@ -13,4 +13,21 @@
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
-//= require_tree .
+//= require bootstrap
+//= require moment
+//= require fullcalendar
+
+$(document).ready(function() {
+  $('#calendar').fullCalendar({
+    weekends: false,
+    height: $(window).height() - 180,
+    header: {
+      left: 'prev,next today',
+      center: 'title',
+      right: 'month,agendaWeek,agendaDay'
+    },
+    dayClick: function() {
+      alert('a day has been clicked!');
+    }
+  })
+});
