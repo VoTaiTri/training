@@ -1,14 +1,4 @@
 class Product < ActiveRecord::Base
-
-
-
-  def self.import(file)
-    CSV.foreach(file.path, headers: true) do |row|
-      Product.create! row.to_hash
-    end
-  end
-
-
   def self.import(file)
     spreadsheet = open_spreadsheet(file)
     header = spreadsheet.row(1)
@@ -28,6 +18,4 @@ class Product < ActiveRecord::Base
     else raise "Unknown file type: #{file.original_filename}"
     end
   end
-
- 
 end

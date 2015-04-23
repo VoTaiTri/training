@@ -3,13 +3,8 @@ class ProductsController < ApplicationController
     @products = Product.all
   end
 
-  def import
-    Product.import params[:file]
-    redirect_to root_url, notice: "Products imported."
-  end
-
   private
   def product_params
-    params.require(:product).permit(:name)
+    params.require(:product).permit :name, :price
   end
 end
