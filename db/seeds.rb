@@ -13,3 +13,8 @@ User.create!(name:  "Example User",
                password:              "password",
                password_confirmation: "password")
 end
+
+10.times do |n|
+  name = Faker::Name.name
+  Product.create!(name:  name)
+end
